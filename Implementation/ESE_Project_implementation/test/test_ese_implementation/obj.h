@@ -18,6 +18,6 @@ unsigned long period_bus = 4; //mili seconds
 unsigned long period_emergency = 20; //mili seconds
 
 // scheduling -> task
-signal_sch signal_scheduling_task(period_signal,&signal_state_duration, &current_signal_state, &emergency_triger);
+signal_sch signal_scheduling_task = signal_sch(period_signal,&signal_state_duration, &current_signal_state, &emergency_triger);
 emergency_l emergency_listener_task = emergency_l(period_emergency ,&emergency_triger);
 bus_l bus_listener_task = bus_l(period_bus, &current_signal_state, &signal_state_duration);

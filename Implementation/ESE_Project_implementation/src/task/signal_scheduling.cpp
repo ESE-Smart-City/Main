@@ -106,7 +106,7 @@ void signal_sch::job(){
         *emergency_vehicle = 0;
 
     }
-    if (*emergency_vehicle>0){
+    if (*emergency_vehicle>0 && *emergency_vehicle<5){
             println_string("Signal_scheduling -> Emergency input detected");
             // for now the emergency will be next insted of change it immediately
             if(!change_immediate_emergency_state){
