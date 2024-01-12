@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "author": "sutaburosu",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-mega",
+      "id": "mega",
+      "top": -184,
+      "left": 83.8,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -211.6,
+      "left": 429.2,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -211.6,
+      "left": 496.4,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": -211.6,
+      "left": 563.6,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": -211.6,
+      "left": 630.8,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn5",
+      "top": -67.6,
+      "left": 429.2,
+      "rotate": 270,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn6",
+      "top": -67.6,
+      "left": 496.4,
+      "rotate": 270,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn7",
+      "top": -67.6,
+      "left": 563.6,
+      "rotate": 270,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn8",
+      "top": -67.6,
+      "left": 630.8,
+      "rotate": 270,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -52.8,
+      "left": 469.85,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -52.8,
+      "left": 537.05,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -264,
+      "left": 556.25,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": -52.8,
+      "left": 604.25,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": -264,
+      "left": 421.85,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r6",
+      "top": -264,
+      "left": 489.05,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r7",
+      "top": -52.8,
+      "left": 402.65,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r8",
+      "top": -264,
+      "left": 623.45,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 44.4,
+      "left": 445.4,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 44.4,
+      "left": 512.6,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 44.4,
+      "left": 579.8,
+      "attrs": { "color": "white", "flip": "" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": 44.4,
+      "left": 637.4,
+      "attrs": { "color": "white" }
+    }
+  ],
+  "connections": [
+    [ "btn1:1.l", "mega:13", "green", [ "h0" ] ],
+    [ "btn2:1.l", "mega:12", "green", [ "v9.6", "h-67.2", "v19.2" ] ],
+    [ "btn3:1.l", "mega:11", "green", [ "v0" ] ],
+    [ "btn4:1.l", "mega:10", "green", [ "v0" ] ],
+    [ "mega:5V", "btn1:2.r", "red", [ "h-26.1", "v-180.1", "h307" ] ],
+    [ "mega:5V", "btn2:2.r", "red", [ "h-26.1", "v-180.1", "h374.2" ] ],
+    [ "mega:5V", "btn3:2.r", "red", [ "h-26.1", "v-180.1", "h441.4" ] ],
+    [ "mega:5V", "btn4:2.r", "red", [ "h-26.1", "v-180.1", "h508.6" ] ],
+    [ "mega:5V", "btn8:2.l", "red", [ "h511.5", "v107.9" ] ],
+    [ "mega:5V", "btn7:2.l", "red", [ "h434.7", "v107.9" ] ],
+    [ "mega:5V", "btn6:2.l", "red", [ "h367.5", "v107.9" ] ],
+    [ "mega:5V", "btn5:2.l", "red", [ "h300.3", "v107.9" ] ],
+    [ "r7:1", "btn5:1.r", "green", [ "h0" ] ],
+    [ "r1:1", "btn6:1.r", "green", [ "h0" ] ],
+    [ "r2:1", "btn7:1.r", "green", [ "h0" ] ],
+    [ "r4:1", "btn8:1.r", "green", [ "h0" ] ],
+    [ "mega:GND.1", "r5:1", "black", [ "h28.8", "v-125", "h57.6" ] ],
+    [ "mega:GND.1", "r6:1", "black", [ "h28.8", "v-125", "h124.8" ] ],
+    [ "mega:GND.1", "r3:1", "black", [ "h28.8", "v-125", "h192" ] ],
+    [ "mega:GND.1", "r8:1", "black", [ "h28.8", "v-125", "h259.2" ] ],
+    [ "mega:GND.3", "r7:2", "black", [ "h146.7", "v107.85", "h96" ] ],
+    [ "mega:GND.3", "r1:2", "black", [ "h146.7", "v107.85", "h163.2" ] ],
+    [ "mega:GND.3", "r2:2", "black", [ "h146.7", "v107.85", "h230.4" ] ],
+    [ "mega:GND.3", "r4:2", "black", [ "h146.7", "v107.85", "h297.6" ] ],
+    [ "mega:GND.2", "led1:C", "black", [ "h41.1", "v232.55", "h230" ] ],
+    [ "mega:GND.2", "led2:C", "black", [ "h41.1", "v232.55", "h287.6" ] ],
+    [ "mega:GND.2", "led3:C", "black", [ "h41.1", "v232.55", "h364.4" ] ],
+    [ "mega:GND.2", "led4:C", "black", [ "h41.1", "v232.55", "h422" ] ],
+    [ "mega:17", "led4:A", "green", [ "h316.8", "v50.2" ] ],
+    [ "mega:18", "led3:A", "green", [ "h249.6", "v40.7" ] ],
+    [ "mega:19", "led2:A", "green", [ "h192", "v49.9" ] ],
+    [ "mega:20", "led1:A", "green", [ "h124.8", "v40.4" ] ],
+    [ "r5:2", "btn1:1.r", "green", [ "h0" ] ],
+    [ "r6:2", "btn2:1.r", "green", [ "h0" ] ],
+    [ "r3:2", "btn3:1.r", "green", [ "h0" ] ],
+    [ "r8:2", "btn4:1.r", "green", [ "h0" ] ],
+    [ "mega:9", "btn8:1.l", "green", [ "h278.4", "v104.9" ] ],
+    [ "mega:8", "btn7:1.l", "green", [ "h211.2", "v9" ] ],
+    [ "mega:7", "btn6:1.l", "green", [ "h144", "v82.4" ] ],
+    [ "mega:6", "btn5:1.l", "green", [ "h76.8", "v72.4" ] ]
+  ],
+  "serialMonitor": { "display": "terminal", "newline": "lf", "convertEol": true },
+  "dependencies": {}
+}

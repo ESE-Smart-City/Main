@@ -1,0 +1,68 @@
+<mxfile host="Electron" modified="2023-12-17T09:20:37.976Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="pSTI9j9bw5OyaNRZegdw" version="22.1.2" type="device">
+  <diagram name="Page-1" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
+    <mxGraphModel dx="737" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Autonomous Car  " style="swimlane;whiteSpace=wrap" parent="1" vertex="1">
+          <mxGeometry x="164.5" y="128" width="280" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="2" vertex="1">
+          <mxGeometry x="100" y="40" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#FF0000;endFill=1;rounded=0" parent="2" source="5" target="7" edge="1">
+          <mxGeometry x="100" y="40" as="geometry">
+            <mxPoint x="115" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="Communication" style="rounded=1;" parent="2" vertex="1">
+          <mxGeometry x="60" y="110" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="2" target="l6HEcgEsuRLhXwafiHVK-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135.5" y="460" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-44" value="&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Communication to Autonomous Cars" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry x="10" y="422" width="250" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-49" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="2">
+          <mxGeometry x="100" y="502" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Traffic Control System" style="swimlane;whiteSpace=wrap" parent="1" vertex="1">
+          <mxGeometry x="445" y="128" width="280" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="3" source="l6HEcgEsuRLhXwafiHVK-41" target="l6HEcgEsuRLhXwafiHVK-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-41" value="Data Processing" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+          <mxGeometry x="80.5" y="182" width="139.5" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-43" value="Signal Adjustment" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+          <mxGeometry x="80.5" y="342" width="139.5" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="3" source="l6HEcgEsuRLhXwafiHVK-42" target="l6HEcgEsuRLhXwafiHVK-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-42" value="Optimal Signal Timing Calculation" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="3">
+          <mxGeometry x="80.5" y="266" width="139.5" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="l6HEcgEsuRLhXwafiHVK-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l6HEcgEsuRLhXwafiHVK-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="l6HEcgEsuRLhXwafiHVK-43" target="l6HEcgEsuRLhXwafiHVK-44">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="595" y="530" />
+              <mxPoint x="292" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
