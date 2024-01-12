@@ -4,9 +4,6 @@
 #ifndef BUS_LISTENER
 #define BUS_LISTENER
 
-#include <Arduino.h>
-#include <Arduino_FreeRTOS.h>
-
 class bus_l{
 
 public: 

@@ -3,12 +3,13 @@
 //
 
 #include "emergency_listener.h"
+#include "io.h"
 
 void emergency_l::SETUP(){
-    pinMode(emergency_ROW_1, INPUT);          
-    pinMode(emergency_ROW_2, INPUT);           
-    pinMode(emergency_ROW_3, INPUT);         
-    pinMode(emergency_ROW_4, INPUT);           
+    setPIN(emergency_ROW_1, INPUT);          
+    setPIN(emergency_ROW_2, INPUT);           
+    setPIN(emergency_ROW_3, INPUT);         
+    setPIN(emergency_ROW_4, INPUT);           
 }
 
 emergency_l::emergency_l(unsigned long new_periode, int* emergency_trigger){
@@ -19,13 +20,13 @@ emergency_l::emergency_l(unsigned long new_periode, int* emergency_trigger){
 void emergency_l::run(){
     while(true){
         job();
-        vTaskDelay(periode);
+        vTaskDelay_(periode);
     }
 }
 
 void emergency_l::job(){
     // procedure
-    Serial.println("emergency_listener");
+    println_string("emergency_listener");
 
 }
 

@@ -1,0 +1,91 @@
+#include "CppUTest/TestHarness.h"
+#include "signal_scheduling.h"
+
+// Mock for the Serial object
+class MockSerial {
+public:
+    void begin(int) {}
+    void println(const char* message) { }
+};
+
+TEST_GROUP(SignalSchedulingTestGroup)
+{
+    signal_sch* signal_scheduler;
+
+    void setup() override
+    {
+        signal_scheduler = new signal_sch(100, nullptr);
+    }
+
+    void teardown() override
+    {
+        delete signal_scheduler;
+    }
+};
+
+// Test case for checking the next state when starting from state 1
+TEST(SignalSchedulingTestGroup, TestNextStateFromState1)
+{
+    signal_scheduler->emergency_vehicle = nullptr;
+    signal_scheduler->next_state = 1;
+
+    signal_scheduler->job();
+
+    CHECK_EQUAL(2, signal_scheduler->next_state);
+}
+
+// Test case for checking the next state when starting from state 2
+TEST(SignalSchedulingTestGroup, TestNextStateFromState2)
+{
+    signal_scheduler->emergency_vehicle = nullptr;
+    signal_scheduler->next_state = 2;
+
+    signal_scheduler->job();
+
+    CHECK_EQUAL(3, signal_scheduler->next_state);
+}
+
+// Test case for checking the next state when starting from state 3
+TEST(SignalSchedulingTestGroup, TestNextStateFromState3)
+{
+    signal_scheduler->emergency_vehicle = nullptr;
+    signal_scheduler->next_state = 3;
+
+    signal_scheduler->job();
+
+    CHECK_EQUAL(4, signal_scheduler->next_state);
+}
+
+// Test case for checking the next state when starting from state 4
+TEST(SignalSchedulingTestGroup, TestNextStateFromState4)
+{
+    signal_scheduler->emergency_vehicle = nullptr;
+    signal_scheduler->next_state = 4;
+
+    signal_scheduler->job();
+
+    CHECK_EQUAL(1, signal_scheduler->next_state);
+}
+
+// Test case for checking the next state when in the emergency state (state 5)
+TEST(SignalSchedulingTestGroup, TestNextStateEmergency)
+{
+    signal_scheduler->emergency_vehicle = new int(1); // Simulating an emergency trigger
+    signal_scheduler->next_state = 3;
+
+    signal_scheduler->job();
+
+    CHECK_EQUAL(3, signal_scheduler->next_state);
+}
+
+// Add more test cases as needed
+
+int main(int argc, char** argv)
+{
+    return CommandLineTestRunner::RunAllTests(argc, argv);
+}
+
+
+[env:Native]
+platform = native
+test_ignore = test_embedded ; if there were some in the future

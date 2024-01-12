@@ -3,33 +3,34 @@
 //
 
 #include "signal_scheduling.h"
+#include  "io.h"
 
 void signal_sch::ROW1(){
-    digitalWrite(ROW_1_OUTPUT,HIGH);
-    digitalWrite(ROW_2_OUTPUT,LOW);
-    digitalWrite(ROW_3_OUTPUT,LOW);
-    digitalWrite(ROW_4_OUTPUT,LOW);
+    pin_out(ROW_1_OUTPUT,HIGH);
+    pin_out(ROW_2_OUTPUT,LOW);
+    pin_out(ROW_3_OUTPUT,LOW);
+    pin_out(ROW_4_OUTPUT,LOW);
 }
 
 void signal_sch::ROW2(){
-    digitalWrite(ROW_1_OUTPUT,LOW);
-    digitalWrite(ROW_2_OUTPUT,HIGH);
-    digitalWrite(ROW_3_OUTPUT,LOW);
-    digitalWrite(ROW_4_OUTPUT,LOW);
+    pin_out(ROW_1_OUTPUT,LOW);
+    pin_out(ROW_2_OUTPUT,HIGH);
+    pin_out(ROW_3_OUTPUT,LOW);
+    pin_out(ROW_4_OUTPUT,LOW);
 }
 
 void signal_sch::ROW3(){
-    digitalWrite(ROW_1_OUTPUT,LOW);
-    digitalWrite(ROW_2_OUTPUT,LOW);
-    digitalWrite(ROW_3_OUTPUT,HIGH);
-    digitalWrite(ROW_4_OUTPUT,LOW);
+    pin_out(ROW_1_OUTPUT,LOW);
+    pin_out(ROW_2_OUTPUT,LOW);
+    pin_out(ROW_3_OUTPUT,HIGH);
+    pin_out(ROW_4_OUTPUT,LOW);
 }
 
 void signal_sch::ROW4(){
-    digitalWrite(ROW_1_OUTPUT,LOW);
-    digitalWrite(ROW_2_OUTPUT,LOW);
-    digitalWrite(ROW_3_OUTPUT,LOW);
-    digitalWrite(ROW_4_OUTPUT,HIGH);
+    pin_out(ROW_1_OUTPUT,LOW);
+    pin_out(ROW_2_OUTPUT,LOW);
+    pin_out(ROW_3_OUTPUT,LOW);
+    pin_out(ROW_4_OUTPUT,HIGH);
 }
 
 void signal_sch::ROWEmergency(){
@@ -48,16 +49,16 @@ void signal_sch::ROWEmergency(){
 }
 
 void signal_sch::SETUP(){
-    pinMode(ROW_1_OUTPUT, OUTPUT);          
-    pinMode(ROW_2_OUTPUT, OUTPUT);           
-    pinMode(ROW_3_OUTPUT, OUTPUT);         
-    pinMode(ROW_4_OUTPUT, OUTPUT);           
+    pin_out(ROW_1_OUTPUT, OUTPUT);          
+    pin_out(ROW_2_OUTPUT, OUTPUT);           
+    pin_out(ROW_3_OUTPUT, OUTPUT);         
+    pin_out(ROW_4_OUTPUT, OUTPUT);           
 }
 
 void signal_sch::run(){
     while(true){
         job();
-        vTaskDelay(periode);
+        vTaskDelay_(periode);
     } 
 }
 
@@ -71,10 +72,10 @@ signal_sch::signal_sch(unsigned long new_periode,unsigned long* state_duration_ 
 
 void signal_sch::job(){
     // procedure
-    Serial.println("Signal_scheduling");
+    println_string("Signal_scheduling");
 
     // update current state clock
-    current_state_clock = millis();
+    current_state_clock = time_millis();
 
     // check for state change using time constraint (current state validation)
     if(!emergency_state){
@@ -97,7 +98,7 @@ void signal_sch::job(){
 
     // check for bus time extention
     if (*state_duration != state_default_duration){
-        Serial.println("Signal_scheduling -> extending periode");
+        println_string("Signal_scheduling -> extending periode");
     }
 
     // check for emergency input
@@ -106,7 +107,7 @@ void signal_sch::job(){
 
     }
     if (*emergency_vehicle>0){
-            Serial.println("Signal_scheduling -> Emergency input detected");
+            println_string("Signal_scheduling -> Emergency input detected");
             // for now the emergency will be next insted of change it immediately
             if(!change_immediate_emergency_state){
                 // change next state to emergency and store history state
@@ -170,32 +171,32 @@ void signal_sch::job(){
         // change
         switch(next_state){
         case 1:
-            Serial.println("Signal_scheduling -> state 1");
+            println_string("Signal_scheduling -> state 1");
             *current_state = 1;
             ROW1();
             next_state = 2;
             break;
         case 2:
-            Serial.println("Signal_scheduling -> state 2");
+            println_string("Signal_scheduling -> state 2");
             *current_state = 2;
             ROW2();
             next_state = 3;
             break;
         case 3:
-            Serial.println("Signal_scheduling -> state 3");
+            println_string("Signal_scheduling -> state 3");
             *current_state = 3;
             ROW3();
             next_state = 4;
             break;
         case 4:
-            Serial.println("Signal_scheduling -> state 4");
+            println_string("Signal_scheduling -> state 4");
             *current_state = 4;
             ROW4();
             next_state = 1;
             break;
         
         case 5:
-            Serial.println("Signal_scheduling -> Emergency state");
+            println_string("Signal_scheduling -> Emergency state");
             *current_state = 5;
             start_emergency_state_clock = current_state_clock;
             ROWEmergency();
@@ -206,7 +207,7 @@ void signal_sch::job(){
 
     }
     
-    delay(1);
+    delay_(1);
 
 }
 

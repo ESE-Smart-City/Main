@@ -4,9 +4,6 @@
 #ifndef EMERGENCY_L
 #define EMERGENCY_L
 
-#include <Arduino.h>
-#include <Arduino_FreeRTOS.h>
-
 class emergency_l{
 
 public: 

@@ -4,8 +4,7 @@
 #ifndef SIGNAL_SCHEDULING
 #define SIGNAL_SCHEDULING
 
-#include <Arduino.h>
-#include <Arduino_FreeRTOS.h>
+
 
 
 class signal_sch{
@@ -15,7 +14,7 @@ public:
     unsigned long WCET = 1696; //micro seconds
     unsigned long periode; //micro seconds
     int* emergency_vehicle = 0;
-    int* current_state;
+    int* current_state = 0;
 
     // signal duration in millis
     unsigned long state_default_duration = 60000;
@@ -24,8 +23,8 @@ public:
     unsigned long start_state_clock = 0;
     //unsigned long hold_state_clock;
     unsigned long start_emergency_state_clock = 0;
-    unsigned long hold_start_state_clock;
-    unsigned long hold_duration_state_clock;
+    unsigned long hold_start_state_clock = -1;
+    unsigned long hold_duration_state_clock = state_default_duration;
 
     bool change_state = true;
     bool emergency_state = false;
