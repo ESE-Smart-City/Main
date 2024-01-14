@@ -7,7 +7,8 @@
 #include <Arduino.h>
 #include "task/signal_scheduling.h"
 
-void WCET_signal_scheduling(signal_sch* signal_scheduling_task){
+// return WCET in microseconds
+unsigned long WCET_signal_scheduling(signal_sch* signal_scheduling_task){
     Serial.println("running WCET_signal_scheduling");
     signal_scheduling_task->run_in_loop = false;
     int iteration = 10;
@@ -23,12 +24,16 @@ void WCET_signal_scheduling(signal_sch* signal_scheduling_task){
             wcet = EndTime - StartTime;
         }
         else{
-            wcet = (wcet+(EndTime - StartTime))/2;
+            wcet = max(wcet,(EndTime - StartTime));
         }
         wcet = EndTime - StartTime;
 
     }
-    Serial.print(wcet);
+    Serial.print("WCET_signal_scheduling(microseconds): ");
+    Serial.println(wcet);
+    Serial.print("period_signal_scheduling(milliseconds): ");
+    Serial.println(signal_scheduling_task->periode);
+    return wcet;
 }
 
 

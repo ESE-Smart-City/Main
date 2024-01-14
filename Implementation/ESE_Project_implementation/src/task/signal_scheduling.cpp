@@ -1,5 +1,6 @@
 //
 // Created by sheik on 1/7/2024.
+// update by adi 13.01.24
 //
 
 #include "signal_scheduling.h"
@@ -49,27 +50,32 @@ void signal_sch::ROWEmergency(){
 }
 
 void signal_sch::SETUP(){
-    pin_out(ROW_1_OUTPUT, OUTPUT);          
-    pin_out(ROW_2_OUTPUT, OUTPUT);           
-    pin_out(ROW_3_OUTPUT, OUTPUT);         
-    pin_out(ROW_4_OUTPUT, OUTPUT);           
+    setPIN(ROW_1_OUTPUT, OUTPUT);          
+    setPIN(ROW_2_OUTPUT, OUTPUT);           
+    setPIN(ROW_3_OUTPUT, OUTPUT);         
+    setPIN(ROW_4_OUTPUT, OUTPUT);           
 }
 
 void signal_sch::run(){
+    //emergency_l emergency_listener(1000, emergency_vehicle); // Adjust the period as needed -> those job are independent
     while(true){
         job();
+        //emergency_listener.job(); // Call the job function of the emergency_listener -> those job are independent
         vTaskDelay_(periode);
     } 
 }
-
-signal_sch::signal_sch(unsigned long new_periode,unsigned long* state_duration_ ,int* current_state_, int* emergency_trigger){
+signal_sch::signal_sch(unsigned long new_periode, unsigned long* state_duration_, int* current_state_, int* emergency_trigger, bool* allow_extention_)
+    : periode(new_periode), current_state(current_state_), state_default_duration(*state_duration_),
+      state_duration(state_duration_), emergency_vehicle(emergency_trigger),allow_extention (allow_extention_){
+}
+/*signal_sch::signal_sch(unsigned long new_periode,unsigned long* state_duration_ ,int* current_state_, int* emergency_trigger){
     periode = new_periode;
     current_state = current_state_;
     state_default_duration = *state_duration_;
     state_duration = state_duration_;
     emergency_vehicle = emergency_trigger;
 }
-
+*/
 void signal_sch::job(){
     // procedure
     println_string("Signal_scheduling");
@@ -97,8 +103,10 @@ void signal_sch::job(){
     
 
     // check for bus time extention
-    if (*state_duration != state_default_duration){
+    if ((*state_duration != state_default_duration)&&(!extended)){
         println_string("Signal_scheduling -> extending periode");
+        extended = true;
+        *allow_extention = false;
     }
 
     // check for emergency input
@@ -159,6 +167,8 @@ void signal_sch::job(){
     // execute task
     if (change_state){
         // reset
+        *allow_extention = true;
+        extended = false;
         *state_duration = state_default_duration;
         change_state = false;
         if(state_clock_hold && !emergency_state){

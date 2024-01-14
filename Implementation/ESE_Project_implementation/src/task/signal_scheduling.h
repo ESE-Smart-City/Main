@@ -38,13 +38,12 @@ public:
     int hold_state = 0;
     int emergency_ROW= 0;
 
-    int ROW_1_OUTPUT = 20;
-    int ROW_2_OUTPUT = 19;
-    int ROW_3_OUTPUT = 18;
-    int ROW_4_OUTPUT = 17; 
     int emergency_ROW_OUTPUT = 0; // variable
 
     bool run_in_loop = true;
+
+    bool extended = false;
+    bool* allow_extention;
 
     void SETUP();
     void run();
@@ -54,7 +53,7 @@ public:
     void ROW3();
     void ROW4();
     void ROWEmergency();
-    signal_sch(unsigned long periode, unsigned long* new_state_duration,int * current_state_, int* emergency_trigger);
+    signal_sch(unsigned long periode, unsigned long* new_state_duration,int * current_state_, int* emergency_trigger, bool*allow_extention_);
 
 };
 

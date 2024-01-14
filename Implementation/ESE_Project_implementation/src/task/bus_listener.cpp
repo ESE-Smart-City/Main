@@ -3,7 +3,7 @@
 //
 
 #include "bus_listener.h"
-#include "io.h"
+#include  "io.h"
 
 void bus_l::SETUP(){
     setPIN(bus_ROW_1, INPUT);          
@@ -24,7 +24,6 @@ void bus_l::job(){
     // procedure
 
     // check
-    delay_(1);
     println_string("bus_listener");
     /*code here*/
     if (pin_in(bus_ROW_1) == HIGH)
@@ -59,24 +58,23 @@ void bus_l::job(){
         }
     
     }
-    
-    delay_(1);
-    println_string("bus_listener");
-
-    
 }
 
-bus_l::bus_l(unsigned long new_periode, int* current_signal_state_, unsigned long* signal_periode_){
+bus_l::bus_l(unsigned long new_periode, int* current_signal_state_, unsigned long* signal_periode_, bool* allow_extention_){
     periode = new_periode;
     current_signal_state = current_signal_state_;
     signal_periode = signal_periode_;
+    allow_extention = allow_extention_;
 
 }
 
 
 void bus_l::extendTrafficLightTime() {
-    *signal_periode += extend_time; 
-    println_string("Extending traffic light time for bus");
+    if(*allow_extention){
+        *signal_periode += extend_time; 
+        println_string("Extending traffic light time for bus");
+    }
+    
 }
 
  

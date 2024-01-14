@@ -11,7 +11,8 @@
 #include "task/bus_listener.h"
 
 
-void WCET_bus_listener(bus_l* bus_listener_task){
+// return WCET in microseconds
+unsigned long WCET_bus_listener(bus_l* bus_listener_task){
     Serial.println("running WCET_bus_listener");
     bus_listener_task->run_in_loop = false;
     int iteration = 10;
@@ -27,12 +28,16 @@ void WCET_bus_listener(bus_l* bus_listener_task){
             wcet = EndTime - StartTime;
         }
         else{
-            wcet = (wcet+(EndTime - StartTime))/2;
+            wcet = max(wcet,(EndTime - StartTime));
         }
         wcet = EndTime - StartTime;
 
     }
-    Serial.print(wcet);
+    Serial.print("WCET_bus_listener(microseconds): ");
+    Serial.println(wcet);
+    Serial.print("period_bus_listener_task(milliseconds): ");
+    Serial.println(bus_listener_task->periode);
+    return wcet;
 }
 
 
