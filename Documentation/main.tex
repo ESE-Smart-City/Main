@@ -1,0 +1,134 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{listings}
+\lstset{breaklines=true}
+\usepackage{url}
+\graphicspath{ {images/} }
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+
+\begin{document}
+
+\title{Smart City: Networked traffic controller for autonomous vehicle\\
+{\footnotesize }
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Sheikh Muhammad Adib \\Bin Sh Abu Bakar}
+\IEEEauthorblockA{\textit{Fachhochschule Dortmund} \\
+\textit{ME. Embedded Systems Engineering}\\
+sheikh.binshabubakar001@stud.fh-dortmund.de}
+
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Mohammed Rizwan }
+\IEEEauthorblockA{\textit{Fachhochschule Dortmund} \\
+\textit{ME. Embedded Systems Engineering}\\
+mohammed.mohammedrizwan009@stud.fh-dortmund.de}
+
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Aditya Kumar}
+\IEEEauthorblockA{\textit{Fachhochschule Dortmund} \\
+\textit{ME. Embedded Systems Engineering}\\
+aditya.kumar001@stud.fh.dortmund.de}
+
+\and
+\IEEEauthorblockN{4\textsuperscript{th} Farhaad Sheikh Mohammed}
+\IEEEauthorblockA{\textit{Fachhochschule Dortmund} \\
+\textit{ME. Embedded Systems Engineering}\\
+farhaad.sheikhmohammed002\\@stud.fh-dortmund.de}
+\and
+
+\IEEEauthorblockN{5\textsuperscript{th} Mykyta Konakh}
+\IEEEauthorblockA{\textit{Fachhochschule Dortmund} \\
+\textit{ME. Embedded Systems Engineering}\\
+mykyta.konakh001@stud.fh-dortmund.de}
+}
+
+\maketitle
+
+
+
+\input{section/01abstract}
+\input{section/02introduction}
+\input{section/03Analysis:use_case}
+\input{section/04Analysis:requirements}
+\input{section/05Analysis:constraint}
+\input{section/06DesignAndImplementation:system_architecture}
+\input{section/07DesignAndImplementation:RSUandTCUposition}
+\input{section/07DesignAndImplementation:V2I Communication}
+\input{section/08DesignAndImplementation:process_1}
+\input{section/09DesignAndImplementation:process_2}
+\input{section/10DesignAndImplementation:process_3}
+\input{section/11DesignAndImplementation:scheduling}
+\input{section/12V&V:test_case}
+\input{section/13Hazard}
+\input{section/14Summary_and_outlook}
+\begin{thebibliography}{00}
+\bibitem{b1}Team, L. (2023, March 10). How IoT is enhancing the development of smart cities. Lvivity. https://lvivity.com/iot-and-smart-cities
+\bibitem{b2} What is a smart city? | IBM. (n.d.). https://www.ibm.com/topics/smart-city
+\bibitem{b3} Van Nisselrooij, E. (2023, July 10). Was ist eine Smart City? Und welche Ziele hat sie? - Secure Insights. Secure Insights. https://www.axis.com/blog/secure-insights-de/was-ist-eine-smart-city/
+\end{thebibliography}
+
+\section*{Contributors}
+
+link to GitHub repository: \url{https://github.com/ESE-Smart-City/Main/tree/main}
+
+
+Member and responsibility:
+\begin{enumerate}
+\item Sheikh Muhammad Adib
+\begin{itemize}
+    \item Signal Scheduling
+    \item Task Scheduling
+    %\item Unit Test
+    \item Code and System Architecture
+\end{itemize}
+
+\item Mohammad Rizwan
+\begin{itemize}
+    \item System Architecture
+    \item Allocation of TCU and RSU
+    \item V2I Communication
+    \item TCU Processor
+    \item RSU Behaviour
+\end{itemize}
+
+\item Aditya Kumar
+\begin{itemize}
+    \item System Analysis: Use Case, Requirements,\\Constraints
+    \item Emergency Handling
+\end{itemize}
+
+\item Farhaad Sheikh Mohammed
+\begin{itemize}
+    \item Process 1: Public Transport Handler
+    \item Process 2: Emergency Handler
+    \item Process 3: Signal Scheduler
+\end{itemize}
+
+\item Mykyta Konakh
+\begin{itemize}
+    \item Verification and Validation
+    \item Hazards
+\end{itemize}
+\end{enumerate}
+
+\section*{Affidavit}
+
+We, Sheikh Muhammad Adib, Aditya Kumar, Mohammed Rizwan, Farhaad Sheikh Mohammed, Mykyta Konakh herewith declare that we have composed the present paper and work ourselves and without the use of any other than the cited sources and aids. Sentences or parts of sentences quoted literally are marked as such; other references with regard to the statement and scope are indicated by full details of the publications concerned. The paper and work in the same or similar form has not been submitted to any examination body and has not been published. This paper was not yet, even in part, used in another examination or as a course performance.
+\begin{figure}[ht]
+    \includegraphics[width=0.2\textwidth]{images/Aditya_signature.png}
+    \includegraphics[width=0.1\textwidth]{images/sheikh_signature.png}
+    \includegraphics[width=0.1\textwidth]{images/Rizwan_sign.jpeg}
+    \includegraphics[width=0.2\textwidth]{images/mykyta_signature.png}
+    \includegraphics[width=0.2\textwidth]{images/Farhaad_signature.png}
+\end{figure}
+
+\end{document}
